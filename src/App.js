@@ -32,7 +32,14 @@ class App extends Component {
   };
 
   onSubmitHandler = ({ name, number }) => {
-    console.log(name, number);
+    if (
+      this.state.contacts.some(
+        (contact) => contact.name.toLowerCase() === name.toLowerCase()
+      )
+    ) {
+      alert("This contact is already exist");
+      return;
+    }
     const contact = {
       id: this.contactId,
       name,
