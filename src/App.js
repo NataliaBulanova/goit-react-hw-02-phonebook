@@ -1,5 +1,6 @@
 import "./App.css";
 import { Component } from "react/cjs/react.development";
+import PropTypes from "prop-types";
 import { nanoid } from "nanoid";
 import ContactForm from "./components/ContactForm/ContactForm";
 import Filter from "./components/Filter/Filter";
@@ -15,8 +16,6 @@ class App extends Component {
     ],
     filter: "",
   };
-
-  contactId = nanoid();
 
   handleFilter = (e) => {
     this.setState({ filter: e.currentTarget.value });
@@ -37,11 +36,11 @@ class App extends Component {
         (contact) => contact.name.toLowerCase() === name.toLowerCase()
       )
     ) {
-      alert("This contact is already exist");
+      alert(name + " is already in contacts");
       return;
     }
     const contact = {
-      id: this.contactId,
+      id: nanoid(),
       name,
       number,
     };
@@ -71,5 +70,16 @@ class App extends Component {
     );
   }
 }
-
+App.propType = {
+  state: PropTypes.shape({
+    contacts: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        number: PropTypes.string.isRequired,
+      })
+    ).isRequired,
+    filter: PropTypes.string.isRequired,
+  }),
+};
 export default App;
