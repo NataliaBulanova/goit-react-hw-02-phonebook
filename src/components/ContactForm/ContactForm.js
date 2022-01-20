@@ -27,6 +27,13 @@ class ContactForm extends Component {
     this.reset();
   };
 
+  propType = {
+    state: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    }).isRequired,
+  };
+
   render() {
     return (
       <Form onSubmit={this.handleSubmit}>
@@ -60,12 +67,5 @@ class ContactForm extends Component {
     );
   }
 }
-
-ContactForm.propType = {
-  state: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    number: PropTypes.string.isRequired,
-  }),
-};
 
 export default ContactForm;

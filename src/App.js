@@ -55,6 +55,19 @@ class App extends Component {
     }));
   };
 
+  propType = {
+    state: PropTypes.shape({
+      contacts: PropTypes.arrayOf(
+        PropTypes.shape({
+          id: PropTypes.string.isRequired,
+          name: PropTypes.string.isRequired,
+          number: PropTypes.string.isRequired,
+        })
+      ).isRequired,
+      filter: PropTypes.string.isRequired,
+    }),
+  };
+
   render() {
     return (
       <div className="App">
@@ -70,16 +83,5 @@ class App extends Component {
     );
   }
 }
-App.propType = {
-  state: PropTypes.shape({
-    contacts: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        number: PropTypes.string.isRequired,
-      })
-    ).isRequired,
-    filter: PropTypes.string.isRequired,
-  }),
-};
+
 export default App;

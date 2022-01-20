@@ -10,7 +10,3 @@ export const List = styled.ul`
     margin-bottom: 10px;
   }
 `;
-
-export const ContactText = styled.span`
-  padding-right: 10px;
-`;
