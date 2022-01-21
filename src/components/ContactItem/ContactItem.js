@@ -1,17 +1,12 @@
 import PropTypes from "prop-types";
 import { ContactText } from "./ContactItem.styled";
-import { Button } from "../ContactForm/ContactForm.styled";
+// import { Button } from "../ContactForm/ContactForm.styled";
 
-const ContactItem = function ({ id, name, number, handleClick }) {
+const ContactItem = function ({ name, number }) {
   return (
-    <li key={id}>
-      <ContactText>
-        {name}: {number}
-      </ContactText>
-      <Button type="button" onClick={() => handleClick(id)}>
-        Delete
-      </Button>
-    </li>
+    <ContactText>
+      {name}: {number}
+    </ContactText>
   );
 };
 

@@ -1,6 +1,5 @@
 import "./App.css";
 import { Component } from "react";
-import PropTypes from "prop-types";
 import { nanoid } from "nanoid";
 import ContactForm from "./components/ContactForm/ContactForm";
 import Filter from "./components/Filter/Filter";
@@ -53,19 +52,6 @@ class App extends Component {
     this.setState((prevState) => ({
       contacts: prevState.contacts.filter(({ id }) => id !== contactId),
     }));
-  };
-
-  propType = {
-    state: PropTypes.shape({
-      contacts: PropTypes.arrayOf(
-        PropTypes.shape({
-          id: PropTypes.string.isRequired,
-          name: PropTypes.string.isRequired,
-          number: PropTypes.string.isRequired,
-        })
-      ).isRequired,
-      filter: PropTypes.string.isRequired,
-    }),
   };
 
   render() {

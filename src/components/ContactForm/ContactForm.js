@@ -28,10 +28,7 @@ class ContactForm extends Component {
   };
 
   propType = {
-    state: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    }).isRequired,
+    onSubmit: PropTypes.func.isRequired,
   };
 
   render() {

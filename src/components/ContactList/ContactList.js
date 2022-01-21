@@ -1,18 +1,19 @@
 import PropTypes from "prop-types";
 import { List } from "./ContactList.styled";
 import ContactItem from "../ContactItem/ContactItem";
+import { Button } from "../ContactForm/ContactForm.styled";
 
 const ContactList = ({ contacts, handleClick }) => {
   return (
     <List>
       {contacts.map(({ id, name, number }) => {
         return (
-          <ContactItem
-            key={id}
-            name={name}
-            number={number}
-            handleClick={handleClick}
-          />
+          <li key={id}>
+            <ContactItem name={name} number={number} />
+            <Button type="button" onClick={() => handleClick(id)}>
+              Delete
+            </Button>
+          </li>
         );
       })}
     </List>
